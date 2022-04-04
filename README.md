@@ -20,4 +20,4 @@ Performing Labs
  * 9.Для проверки переходим на 192.168.11.113
  * 10.В результате балансировки имя сервера должно меняться
 
-![Image alt](https://github.com/egorniy/ansible/raw/main/Снимок экрана от 2022-04-04 10-03-30.png )
+![Image alt](https://github.com/egorniy/ansible/raw/main/1.png )
