@@ -1,4 +1,4 @@
-# ansible
+# Баланировка
 Performing Labs
 Задача:
 1. На серверах rrobin, web1, web2 установить nginx.
@@ -16,9 +16,11 @@ Performing Labs
  * 6.Ждем выполнения команды
  * 7.Выполняем команду ansible-playbook nginx.yml
  * 8.Ждем появления окошка с результатом выполнения
- * ![Image alt](https://github.com/egorniy/ansible/raw/main/1.png )
-![alt text](Снимок экрана от 2022-04-04 10-03-30.png "Результат выполнения команд")
+ ![Image alt](https://github.com/egorniy/ansible/raw/main/1.png )
+
  * 9.Для проверки переходим на 192.168.11.113
  * 10.В результате балансировки имя сервера должно меняться
 
-![Image alt](https://github.com/egorniy/ansible/raw/main/1.png )
+![Image alt](https://github.com/egorniy/ansible/raw/main/2.png )
+
+![Image alt](https://github.com/egorniy/ansible/raw/main/3.png )
