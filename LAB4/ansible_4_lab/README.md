@@ -1,40 +1,26 @@
-## Usage
+# Балансировка
+Performing Labs
+Задача:
+1. На серверах rrobin, web1, web2 установить nginx.
+2. На серверах web1, web2 Nginx должен работать по порту 8080 и отдавать кастомную страницу, зайдя на которую можно понять на каком сервере вы находитесь.
+3. На сервере rrobin Nginx должен обеспечить балансировку нагрузки серверов web1 и web2 в режиме round-robin. Вес каждого сервера одинаковый.
+4. Установка и настройка всего ПО должна быть обеспечена Ansible-сценарием.
+5. Все файлы по этому заданию выложить в Github и написать ReadMe со скринами работоспособности и инструкцию по запуску вашего Ansible-сценария
 
-This playbook will create a nginx rrobin balancing page for two pages (web1 and web2)
+ Выполнение:
+ * 1.Реализовывем git clone в свою папку
+ * 2.Меняем в файле VagrantFile 39-ю строку на собственный путь до ключа SSH
+ * 3.Сохраняем 
+ * 4.Запускаем папку через терминал
+ * 5.Выполняем команду vagrant up
+ * 6.Ждем выполнения команды
+ * 7.Выполняем команду ansible-playbook nginx.yml
+ * 8.Ждем появления окошка с результатом выполнения
+ ![Image alt](https://github.com/egorniy/ansible/raw/main/1.png )
 
-## Start
+ * 9.Для проверки переходим на 192.168.11.113
+ * 10.В результате балансировки имя сервера должно меняться
 
-Before the installation we will need a custom CentOS7 virtual box image with SElinux disabled.
+![Image alt](https://github.com/egorniy/ansible/raw/main/2.png )
 
-### DON`T FORGET TO EDIT VagrantFile with path to your ssh folder
-
-## Installation
-
-Let's start our virtual machines with Vagrant. Make sure you are using the latest version of vagrant (2.2.19)
-
-```
-vagrant up
-```
-Then let's start our playbook
-
-```
-ansible-playbook nginx
-```
-
-## Post Installation
-
-If have no errors on summary you can proceed to http://192.168.11.113 to see if your balancer works
-
-It should look like this:
-
-<a href="https://ibb.co/kq8VjL5"><img src="https://i.ibb.co/xzjKWnX/vagrant-result.png" alt="vagrant-result" border="0"></a>
-
-Try refreshing the page to see if numbers on page are changing. If they don`t change try using CTRL+F5 to refresh cache as well
-
-Different page:
-
-<a href="https://ibb.co/qWb7P8v"><img src="https://i.ibb.co/9VRcC07/vagrant-sec-page.png" alt="vagrant-sec-page" border="0"></a>
-
-## Done
-
-You can get yourself a coffee! ☕
+![Image alt](https://github.com/egorniy/ansible/raw/main/3.png )
