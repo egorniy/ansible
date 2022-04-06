@@ -20,3 +20,6 @@
  + Выполняем команду `vagrant up`  
  + Далее прописываем в консоли `ansible-playbook game.yml`
  + Проверить работоспособность можно перейдя по адресу http://192.168.11.100/
+ ![Image alt](https://github.com/egorniy/ansible/raw/main/11.png )
+ ![Image alt](https://github.com/egorniy/ansible/raw/main/12.png )
+ ![Image alt](https://github.com/egorniy/ansible/raw/main/13.png )
