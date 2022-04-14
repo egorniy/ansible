@@ -1,0 +1,69 @@
+---
+- name: Install nfs-utils
+  yum: 
+    name: nfs-utils
+    state: installed
+  tags: install-nfs
+
+- name: create disks backup
+  community.general.lvg:
+    vg: backup
+    pvs: /dev/sdb
+  tags: create-disk-backup
+
+- name: mount for free - backup
+  community.general.lvol:
+    vg: backup
+    lv: backup
+    size: 100%VG
+  tags: mount-free-backup
+
+- name: mkdir directory backup
+  file: 
+    path: /srv/backup
+    state: directory
+  tags: mkdir-/srv/backup
+
+- name: mkfs pgdata
+  community.general.filesystem:
+    fstype: xfs
+    dev: /dev/mapper/backup-backup
+  tags: mkfs-backup
+
+- name: Mount up device by UUID
+  ansible.posix.mount:
+    path: /srv/backup 
+    src: /dev/mapper/backup-backup
+    fstype: xfs
+    state: mounted
+
+- name: Add group "postgres" with gid
+  ansible.builtin.group:
+    name: postgres
+    state: present
+    gid: 26
+
+- name: Add the user 'postges' with uid and group of 'postgres'
+  ansible.builtin.user:
+    name: postgres
+    uid: 26
+    group: postgres
+
+- name: file to /etc/exports
+  template:
+    src: exports
+    dest: /etc/exports
+    owner: root
+    group: root
+  tags: exports
+
+- name: restart nfs
+  ansible.builtin.systemd:
+    name: nfs
+    state: restarted
+    enabled: yes
+  tags: start-nfs
+
+- name: exporting -av
+  shell: "exportfs -av"
+  tags: exporting
